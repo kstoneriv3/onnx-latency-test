@@ -19,6 +19,15 @@ $ ./run_all.sh
 
 ## Example Output
 
+The inference time of NN and XGB are as follows:
+
+|       | xgb           | nn          |
+|-------|---------------|-------------|
+| CPU   | 0.002002 ms   | 1.42347 ms  |
+| GPU   | 0.00417267 ms | 0.22238 ms  |
+
+So for lightweight model like XGBoost (boosting trees), a CPU offers faster inference time. In contrast, for a neural network (NN), GPU offers faster inference time.
+
 ```
 $ docker run --gpus 0 onnx-gpu-example:latest
 
