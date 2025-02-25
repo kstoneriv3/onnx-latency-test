@@ -4,6 +4,8 @@ This is my attempt to quantify the latency of the inference of ML models using O
 
 ## How to Run Experiment Using Docker
 
+Make sure to have docker runtime with support of nvidia GPUs.
+
 ```bash
 $ docker build -t onnx-latency-test .
 $ docker run --gpus all onnx-latency-test:latest
