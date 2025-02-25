@@ -1,7 +1,17 @@
 #!/bin/bash
 set -e
 
-python3 create_nn_model.py
+echo "CPU Specs (lscpu):"
+
+lscpu
+
+echo "RAM Specs (free -h):"
+free -h
+
+echo "GPU Specs (nvidia-smi):"
+nvidia-smi
+
+
 
 echo "Compiling benchmark.cpp..."
 g++ -std=c++17 \
@@ -15,5 +25,17 @@ g++ -std=c++17 \
     -o benchmark
 
 echo "Compilation successful. Running benchmark..."
-./benchmark
 
+echo "Creating a NN model..."
+python3 create_nn_model.py
+
+echo "Benchmarking with the NN model..."
+./benchmark
+echo "Done benchmarking with the NN model."
+
+echo "Creating an XGB model..."
+python3 create_xgb_model.py
+
+echo "Benchmarking with the XGB model..."
+./benchmark
+echo "Done benchmarking with the XGB model."

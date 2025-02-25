@@ -52,7 +52,7 @@ def dump_onnx_model(onnx_filename="model.onnx", dump_filename="model_dump.txt"):
 
 def main():
     # Create the model.
-    model = FeedForwardNN(input_size=100, hidden_size=100, output_size=10, num_hidden_layers=3)
+    model = FeedForwardNN(input_size=100, hidden_size=2000, output_size=10, num_hidden_layers=3)
     
     # (Optional) You could run a forward pass here if desired:
     # dummy_input = torch.randn(1, 100)
